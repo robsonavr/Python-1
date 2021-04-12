@@ -1,17 +1,12 @@
 print ("Conversor de Moedas: ")
 
+cotacao = {'DOLAR': [5.15, '$'], 'EURO': [6.30, '€'], 'LIBRA': [7.10, '£']}
+
 valor = float(input("Valor a ser Convertido: "))
 moeda = input("Converter R$ em Dolar, Euro ou Libra: ").upper()
 
-if (moeda == "DOLAR"):
-    n = valor/5.15
-    print(f"O valor de {valor} R$ equivale a {round(n,2)} $")
-    #round(numero_flutunate, 2) escrever apenas os 2 primeiros numeros pos o ponto
-elif (moeda == "EURO"):
-    n = valor/6.30
-    print(f"O valor de {valor} R$ equivale a {round(n,2)} €")
-elif (moeda == "LIBRA"):
-    n = valor/7.10
-    print(f"O valor de {valor} R$ equivale a {round(n,2)} £")
+if moeda in cotacao.keys():
+    n = valor / cotacao[moeda][0]
+    print(f"O valor de {valor} R$ equivale a {round(n,2)} {cotacao[moeda][1]}")
 else:
-    print ("ERRO")
+    print('Moda não encontrada')
